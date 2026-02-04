@@ -10,7 +10,7 @@ import { ProductsService } from '../../services/product.services';
 })
 export class ProductsCatalog {
   productsService = inject(ProductsService);
-
+  loading = this.productsService.loading;
   ngOnInit() {
     
     this.productsService.loadProducts();
