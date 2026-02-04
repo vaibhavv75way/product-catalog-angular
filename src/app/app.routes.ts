@@ -10,7 +10,7 @@ export const routes: Routes = [
   {
     path: 'products',
     loadComponent: () =>
-      import('./pages/products-catalog/products-catalog')
+      import('./pages/products/products')
         .then(m => m.ProductsCatalog),
   },
   {

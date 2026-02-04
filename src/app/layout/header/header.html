@@ -1,6 +1,26 @@
-<mat-toolbar class="w-full elevated shadow-2xl py-2!">
-  <button matIconButton class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>My App</span>
+<mat-toolbar class="w-full bg-white shadow-md px-6 py-2 flex items-center justify-between">
+  <div class="flex items-center gap-3">
+    <button mat-icon-button class="text-gray-700 hover:bg-gray-100">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="text-xl font-semibold tracking-wide text-gray-800">
+      E-Commerce Website
+    </span>
+  </div>
+
+  <div class="hidden md:flex flex-1 justify-center px-6">
+    <div class="w-full max-w-lg relative">
+      <mat-icon class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</mat-icon>
+      <input type="text" placeholder="Search products..."
+        class="w-full pl-10 pr-4 py-2 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+    </div>
+  </div>
+
+
+  <div class="flex items-center gap-2">
+    <button mat-icon-button class="text-gray-600 hover:bg-gray-100 rounded-xl">
+      <mat-icon>favorite_border</mat-icon>
+    </button>
+
+  </div>
 </mat-toolbar>
