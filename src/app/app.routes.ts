@@ -14,6 +14,18 @@ export const routes: Routes = [
         .then(m => m.ProductsCatalog),
   },
   {
+    path: 'products/:id',
+    loadComponent: () =>
+      import('./pages/single-product/single-product')
+        .then(m => m.SingleProduct),
+  },
+  {
+    path: 'cart',
+    loadComponent: () =>
+      import('./pages/cart/cart')
+        .then(m => m.Cart),
+  },
+  {
     path: '**',
     redirectTo: '',
   },

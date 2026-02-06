@@ -3,9 +3,9 @@
     <button mat-icon-button class="text-gray-700 hover:bg-gray-100">
       <mat-icon>menu</mat-icon>
     </button>
-    <span class="text-xl font-semibold tracking-wide text-gray-800">
+    <a routerLink="/" class="text-xl font-semibold tracking-wide text-gray-800 hover:text-blue-600 transition">
       E-Commerce Website
-    </span>
+    </a>
   </div>
 
 
@@ -23,5 +23,12 @@
       <mat-icon>favorite_border</mat-icon>
     </button>
 
+    <a routerLink="/cart" mat-icon-button class="text-gray-600 hover:bg-gray-100 rounded-xl relative">
+      <mat-icon>shopping_cart</mat-icon>
+      <span *ngIf="(itemCount$ | async) ?? 0 > 0"
+        class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+        {{ itemCount$ | async }}
+      </span>
+    </a>
   </div>
 </mat-toolbar>
