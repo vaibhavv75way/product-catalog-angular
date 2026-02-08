@@ -1,0 +1,54 @@
+<div class="admin-dashboard">
+  <mat-toolbar color="primary" class="toolbar">
+    <span class="toolbar-title">Admin Panel</span>
+    <span class="spacer"></span>
+    @if (user$ | async; as user) {
+      <button mat-button [matMenuTriggerFor]="userMenu">
+        <mat-icon>account_circle</mat-icon>
+        {{ user.name }}
+      </button>
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item disabled>
+          <mat-icon>email</mat-icon>
+          <span>{{ user.email }}</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>badge</mat-icon>
+          <span>{{ user.role }}</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    }
+  </mat-toolbar>
+
+  <div class="dashboard-content">
+    <h1>Welcome to Admin Dashboard</h1>
+    <p class="subtitle">Manage your application from here</p>
+
+    <div class="cards-grid">
+      @for (card of dashboardCards; track card.route) {
+        <mat-card class="dashboard-card" [routerLink]="card.route">
+          <mat-card-header>
+            <div class="card-icon" [style.background-color]="card.color">
+              <mat-icon>{{ card.icon }}</mat-icon>
+            </div>
+          </mat-card-header>
+          <mat-card-content>
+            <h2>{{ card.title }}</h2>
+            <p>{{ card.description }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button color="primary">
+              Open
+              <mat-icon>arrow_forward</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      }
+    </div>
+  </div>
+</div>
